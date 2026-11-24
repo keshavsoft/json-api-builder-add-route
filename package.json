@@ -1,0 +1,42 @@
+{
+  "name": "json-api-builder-add-route",
+  "version": "1.0.0",
+  "description": "Scoped subtree generator and parent router hooker for JSON API Builder.",
+  "type": "module",
+  "main": "./src/index.js",
+  "bin": {
+    "json-api-builder-add-route": "./bin/index.js"
+  },
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test \"test/**/*.test.js\""
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "acorn": "^8.15.0",
+    "astring": "^1.9.0"
+  },
+  "license": "MIT",
+  "author": "KeshavSoft",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keshavsoft/json-api-builder-add-route.git"
+  },
+  "bugs": {
+    "url": "https://github.com/keshavsoft/json-api-builder-add-route/issues"
+  },
+  "homepage": "https://keshavsoft.github.io/json-api-builder-add-route/"
+}
