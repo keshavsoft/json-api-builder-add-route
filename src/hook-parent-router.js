@@ -28,9 +28,10 @@ export function hookParentRouter(parentRouterPath, routeName) {
         }
     }
 
-    // 2. Check if mount already exists
+    // 2. Check if mount already exists and detect router variable name
     let hasMount = false;
     let lastMountIndex = -1;
+    let routerVarName = "routes";
 
     for (let i = 0; i < ast.body.length; i++) {
         const node = ast.body[i];
@@ -40,6 +41,7 @@ export function hookParentRouter(parentRouterPath, routeName) {
             node.expression.callee?.type === "MemberExpression" &&
             node.expression.callee.property?.name === "route"
         ) {
+            routerVarName = node.expression.callee.object?.name ?? "routes";
             lastMountIndex = i;
             const firstArg = node.expression.arguments?.[0];
             if (firstArg?.value === routeMountPath) {
@@ -84,7 +86,7 @@ export function hookParentRouter(parentRouterPath, routeName) {
                 type: "CallExpression",
                 callee: {
                     type: "MemberExpression",
-                    object: { type: "Identifier", name: "routes" },
+                    object: { type: "Identifier", name: routerVarName },
                     property: { type: "Identifier", name: "route" }
                 },
                 arguments: [
