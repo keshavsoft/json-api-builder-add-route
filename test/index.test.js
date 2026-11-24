@@ -4,9 +4,12 @@ import fs from "node:fs";
 import path from "node:path";
 import os from "node:os";
 import { addRoute } from "../src/index.js";
+import { addRoute as addRouteV1 } from "../src/v1/index.js";
 
 test("addRoute exports the function API", () => {
     assert.equal(typeof addRoute, "function");
+    assert.equal(typeof addRouteV1, "function");
+    assert.equal(addRoute, addRouteV1);
 });
 
 test("addRoute creates subtree and hooks into existing parent routes.js without touching v1", () => {

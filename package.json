@@ -8,7 +8,8 @@
     "json-api-builder-add-route": "./bin/index.js"
   },
   "exports": {
-    ".": "./src/index.js"
+    ".": "./src/index.js",
+    "./v1": "./src/v1/index.js"
   },
   "files": [
     "bin",
